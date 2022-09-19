@@ -79,14 +79,28 @@ id alice
 
 ### 12 - 
 ```bash
-id 1003
+id -nu 1003
 ```
 
 ### 13 -
 ```bash
-cat /etc/group
+getent group dev
 ```
 Le groupe dev a un id correspondant à 1001
 
 ### 14 - 
+```bash
+getent group GID 1002
+```
+
+### 15 - 
+```bash
+sudo usermod --expiredate 2023-06-1 dave
+sudo chage -m 5 -W 14 -I 30 -M 90 dave
+```
+
+### 16 - 
+```bash
+
+```
 
