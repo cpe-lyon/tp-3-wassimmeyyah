@@ -72,3 +72,14 @@ su alice
 ```
 
 ### 11 -
+La commande id permet d'obtenir le gid et l'uid 
+```bash 
+id alice
+```
+
+### 12 - 
+```bash
+id 1003
+```
+
+### 13 -
