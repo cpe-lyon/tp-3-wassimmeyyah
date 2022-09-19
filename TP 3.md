@@ -83,3 +83,10 @@ id 1003
 ```
 
 ### 13 -
+```bash
+cat /etc/group
+```
+Le groupe dev a un id correspondant à 1001
+
+### 14 - 
+
