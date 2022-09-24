@@ -104,3 +104,53 @@ sudo chage -m 5 -W 14 -I 30 -M 90 dave
 
 ```
 
+
+
+# Exercice 2. Gestion des problèmes - 
+
+### 1  - 
+```bash
+cd ~
+mkdir test 
+cd test
+cat < fichier
+  lignes
+  de 
+  texte
+```
+On vérifie ensuite quels sont les droits sur "test" et sur "fichier" : ```cd .. ; ls -l``` : le dossier "test" est en 775 (rwxrwxr-x) tandis que le fichier "fichier" est en 664 (-rw-rw-r--). 
+
+### 2 -
+```bash
+chmod ugoa-rwx fichier
+```
+Il nous est désormais impossible d'accéder au contenu du fichier ou de le modifier.
+Cependant, en entrant en mode root à l'aide de la commande ```sudo nano fichier``` il est désormais possible de manipuler le fichier à sa guise. On peut en déduire que l'utilisateur root est "au dessus" de ces permissions et qu'il peut influer sur tous les dossiers du système comme bon lui semble.  
+
+
+### 3 - 
+```bash
+cd test
+chmod u+wx fichier
+echo "echo Hello" > fichier
+```
+Aucun message d'erreur ne s'affiche, le fichier a donc du être correctement modifié. Néanmoins, étant donné que l'on ne dispose pas du droit de lecture, il nous est impossible de le vérfier.
+
+### 4 - 
+Il nous est impossible d'éxecuter le fichier : la permission nous est refusé. Cependant, lorsque l'on tente d'exécuter le fichier en mode root avec ```sudo ./fichier```, ce dernier est exécuté.
+
+### 5 - 
+```bash
+cd test
+chmod u-r ~/test
+```
+Tandis qu'il nous était possible de lister les fichiers du répertoire avant l'exécution de la commande précédente, il nous est désormais impossible de le faire. Il nous est cependant possible de l'exécuter étant donné que nous disposons des droits dessus.
+
+### 6 - 
+```bash
+touch nouveau
+mkdir sstest 
+chmod u-w nouveau sstest/
+nano nouveau
+
+
