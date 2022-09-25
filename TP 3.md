@@ -94,16 +94,20 @@ getent group GID 1002
 ```
 
 ### 15 - 
+Pour supprimer Charlie du groupe Infra, il faut utiliser la commande `sudo gpasswd -d Charlie Infra`. 
+
+
+### 16 - 
 ```bash
 sudo usermod --expiredate 2023-06-1 dave
 sudo chage -m 5 -W 14 -I 30 -M 90 dave
 ```
 
-### 16 - 
-```bash
+17. L'interpréteur de commandes de l'utilisateur root est '#'
 
-```
+18. L'utilisateur nobody sert uniquement à exécuter dess commandes ne demandant que peu de permissions. 
 
+19. Par défaut, la commande sudo garde le mot de passe en mémoire pendant 15 minutes. Si l'on veut que sudo oublie le mot de passe, il faut entrer la commande `sudo -K`
 
 
 # Exercice 2. Gestion des problèmes - 
@@ -152,5 +156,41 @@ touch nouveau
 mkdir sstest 
 chmod u-w nouveau sstest/
 nano nouveau
+````
 
+### 7.
+Le fait qu'il n'y ait pas de droit d'éxécution empeche de rentrer dans le dossier, mais également d'effectuer une modification des fichiers qu'il contient.
+
+### 8.
+On ne peut pas modifier les droits du dossier dans lequel on se trouve.
+
+### 9.
+```bash
+chmod  g+r fichier
+```
+
+### 10.
+```bash
+umask 007
+````
+### 11.
+```bash
+umask 755
+````
+
+### 12.
+```bash
+umask 744
+```
+### 13. 
+- chmod u=rx, g=wx, o=r -> chmod 534
+- chmod uo+w,g-rx -> chmod 670
+- chmod 653 -> chmod rw-r-x-wx
+- chmod u+x,g=w,o-r -> chmod 520
+
+### 14. 
+```bash
+-rw-r--r--   [...] passwd
+```
+Personne n'a les droits
 
